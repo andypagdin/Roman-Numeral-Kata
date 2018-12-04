@@ -43,10 +43,12 @@ class RomanNumeralConverter implements RomanNumeral
 
         $result = '';
 
-        foreach (static::$lookup as $key => $value) {
-            while ($number >= $key) {
-                $number -= $key;
-                $result .= $value;
+        foreach (static::$lookup as $numeralValue => $numeralGlyph) {
+            while ($number >= $numeralValue) {
+                // Subtract the numeral value from the number being converted.
+                $number -= $numeralValue; 
+                // Append the glyph onto the result string.
+                $result .= $numeralGlyph; 
             }
         }
 
