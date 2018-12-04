@@ -24,7 +24,7 @@ Once dependencies are installed you may then execute the following command
   
 `phpspec run`
 
-*Note: If this is your first time running PHPspec you may need to alter the command to `vendor/bin/phpspec run`*
+*Note: If this is your first time running PHPspec you may need to alter the command to `vendor/bin/phpspec run`*</br>
 This will run all tests located in the /spec directory, outputting the results into your terminal window.
 
 ## Possible improvements
