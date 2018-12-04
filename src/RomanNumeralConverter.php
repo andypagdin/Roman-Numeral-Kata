@@ -2,7 +2,17 @@
 
 interface RomanNumeral
 {
+    /**
+     * @param int $number
+     * @return string $result
+     */
     public function convert(int $number);
+
+    /**
+     * @param int $number
+     * @throws InvalidArgumentException 
+     */
+    public function guardAgainstInvalidNumber(int $number);
 }
 
 class RomanNumeralConverter implements RomanNumeral
@@ -29,6 +39,8 @@ class RomanNumeralConverter implements RomanNumeral
     ];
 
     public function convert(int $number) {
+        $this->guardAgainstInvalidNumber($number);
+
         $result = '';
 
         foreach (static::$lookup as $key => $value) {
@@ -39,5 +51,11 @@ class RomanNumeralConverter implements RomanNumeral
         }
 
         return $result;
+    }
+
+    public function guardAgainstInvalidNumber(int $number) {
+        if ($number < 1 || $number > 3999) {
+            throw new InvalidArgumentException;
+        }
     }
 }

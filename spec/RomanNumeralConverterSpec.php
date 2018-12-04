@@ -35,4 +35,20 @@ class RomanNumeralConverterSpec extends ObjectBehavior
     function it_calculates_the_roman_numeral_for_3999() {
         $this->convert(3999)->shouldReturn('MMMCMXCIX');
     }
+
+    /**
+     * Test an invalid number.
+     * Number is deemed invalid if it is less than 1 or greater than 3999.
+     */
+    function it_should_not_allow_an_invalid_number_4500() {
+        $this->shouldThrow(new \InvalidArgumentException(''))->duringConvert(4500);
+    }
+
+    /**
+     * Test an invalid number.
+     * Number is deemed invalid if it is less than 1 or greater than 3999.
+     */
+    function it_should_not_allow_an_invalid_number_minus_1() {
+        $this->shouldThrow(new \InvalidArgumentException(''))->duringConvert(-1);
+    }
 }
