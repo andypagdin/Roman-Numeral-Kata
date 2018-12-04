@@ -51,4 +51,25 @@ class RomanNumeralConverterSpec extends ObjectBehavior
     function it_should_not_allow_an_invalid_number_minus_1() {
         $this->shouldThrow(new \InvalidArgumentException(''))->duringConvert(-1);
     }
+
+    /**
+     * Test a numerical string, which should be converted to an integer.
+     */
+    function it_calculates_the_roman_numeral_for_55() {
+        $this->convert('55')->shouldReturn('LV');
+    }
+
+    /**
+     * Test a binary number, which should be converted to an interger.
+     */
+    function it_calculates_the_roman_numeral_for_250() {
+        $this->convert(0b11111010)->shouldReturn('CCL');
+    }
+
+    /**
+     * Test a hexadecimal number, which should be converted to an interger.
+     */
+    function it_calculates_the_roman_numeral_for_150() {
+        $this->convert(0x96)->shouldReturn('CL');
+    }
 }
